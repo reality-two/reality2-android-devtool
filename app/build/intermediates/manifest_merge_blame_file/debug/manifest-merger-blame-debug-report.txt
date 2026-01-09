@@ -1,0 +1,192 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.reality2.devtool"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="31"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Required hardware features -->
+12    <uses-feature
+12-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:6:5-8:35
+13        android:name="android.hardware.bluetooth_le"
+13-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:7:9-53
+14        android:required="true" />
+14-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:8:9-32
+15    <uses-feature
+15-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:9:5-11:35
+16        android:name="android.hardware.bluetooth"
+16-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:10:9-50
+17        android:required="true" />
+17-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:11:9-32
+18
+19    <!-- Bluetooth permissions for Android 12+ (API 31+) -->
+20    <uses-permission
+20-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:14:5-17:31
+21        android:name="android.permission.BLUETOOTH_SCAN"
+21-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:15:9-57
+22        android:usesPermissionFlags="neverForLocation" />
+22-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:16:9-55
+23    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+23-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:5-76
+23-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:22-73
+24
+25    <!-- For older Android versions (compatibility) -->
+26    <uses-permission
+26-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:21:5-23:38
+27        android:name="android.permission.BLUETOOTH"
+27-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:22:9-52
+28        android:maxSdkVersion="30" />
+28-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:23:9-35
+29    <uses-permission
+29-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:24:5-26:38
+30        android:name="android.permission.BLUETOOTH_ADMIN"
+30-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:25:9-58
+31        android:maxSdkVersion="30" />
+31-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:26:9-35
+32    <uses-permission
+32-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:27:5-29:38
+33        android:name="android.permission.ACCESS_FINE_LOCATION"
+33-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:28:9-63
+34        android:maxSdkVersion="30" />
+34-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:29:9-35
+35
+36    <permission
+36-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+37        android:name="com.reality2.devtool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.reality2.devtool.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+41
+42    <application
+42-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:31:5-53:19
+43        android:name="com.reality2.devtool.Reality2DevToolApp"
+43-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:32:9-43
+44        android:allowBackup="true"
+44-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:33:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+46        android:dataExtractionRules="@xml/data_extraction_rules"
+46-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:34:9-65
+47        android:debuggable="true"
+48        android:extractNativeLibs="false"
+49        android:fullBackupContent="@xml/backup_rules"
+49-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:35:9-54
+50        android:icon="@mipmap/ic_launcher"
+50-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:36:9-43
+51        android:label="@string/app_name"
+51-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:37:9-41
+52        android:roundIcon="@mipmap/ic_launcher_round"
+52-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:38:9-54
+53        android:supportsRtl="true"
+53-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:39:9-35
+54        android:theme="@style/Theme.Reality2DevTool" >
+54-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:40:9-53
+55        <activity
+55-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:43:9-52:20
+56            android:name="com.reality2.devtool.MainActivity"
+56-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:44:13-41
+57            android:exported="true"
+57-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:45:13-36
+58            android:theme="@style/Theme.Reality2DevTool"
+58-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:46:13-57
+59            android:windowSoftInputMode="adjustResize" >
+59-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:47:13-55
+60            <intent-filter>
+60-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:48:13-51:29
+61                <action android:name="android.intent.action.MAIN" />
+61-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:17-69
+61-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:25-66
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:17-77
+63-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:27-74
+64            </intent-filter>
+65        </activity>
+66        <activity
+66-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/cf1659cb05b1754ba44aecc718f1b132/transformed/ui-test-manifest-1.5.4/AndroidManifest.xml:23:9-25:39
+67            android:name="androidx.activity.ComponentActivity"
+67-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/cf1659cb05b1754ba44aecc718f1b132/transformed/ui-test-manifest-1.5.4/AndroidManifest.xml:24:13-63
+68            android:exported="true" />
+68-->[androidx.compose.ui:ui-test-manifest:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/cf1659cb05b1754ba44aecc718f1b132/transformed/ui-test-manifest-1.5.4/AndroidManifest.xml:25:13-36
+69        <activity
+69-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/e3f53592b5839ac5e575ecf662dde009/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+70            android:name="androidx.compose.ui.tooling.PreviewActivity"
+70-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/e3f53592b5839ac5e575ecf662dde009/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+71            android:exported="true" />
+71-->[androidx.compose.ui:ui-tooling-android:1.5.4] /home/roycdavies/.gradle/caches/transforms-3/e3f53592b5839ac5e575ecf662dde009/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+72
+73        <provider
+73-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+74            android:name="androidx.startup.InitializationProvider"
+74-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+75            android:authorities="com.reality2.devtool.androidx-startup"
+75-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+76            android:exported="false" >
+76-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+77            <meta-data
+77-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+78                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+78-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+79                android:value="androidx.startup" />
+79-->[androidx.emoji2:emoji2:1.4.0] /home/roycdavies/.gradle/caches/transforms-3/17650344a252010376613b26ec69f312/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+80            <meta-data
+80-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/roycdavies/.gradle/caches/transforms-3/12702579b71b01dc1f5aea4aed94c7c9/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+81-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/roycdavies/.gradle/caches/transforms-3/12702579b71b01dc1f5aea4aed94c7c9/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+82                android:value="androidx.startup" />
+82-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/roycdavies/.gradle/caches/transforms-3/12702579b71b01dc1f5aea4aed94c7c9/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+83            <meta-data
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+84                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+85                android:value="androidx.startup" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+86        </provider>
+87
+88        <receiver
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+89            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+90            android:directBootAware="false"
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+91            android:enabled="true"
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+92            android:exported="true"
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+93            android:permission="android.permission.DUMP" >
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+95                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+96            </intent-filter>
+97            <intent-filter>
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+98                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+99            </intent-filter>
+100            <intent-filter>
+100-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+101                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+102            </intent-filter>
+103            <intent-filter>
+103-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+104                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/roycdavies/.gradle/caches/transforms-3/173d0eadf35f123092537fda524e1e4e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+105            </intent-filter>
+106        </receiver>
+107    </application>
+108
+109</manifest>

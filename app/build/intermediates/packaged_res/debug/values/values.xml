@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#2196F3</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Reality2 DevTool</string>
+    <string name="close">Close</string>
+    <string name="error_bluetooth_disabled">Bluetooth is disabled. Please enable it to continue.</string>
+    <string name="error_bluetooth_unavailable">Bluetooth is not available on this device.</string>
+    <string name="error_connection_failed">Failed to connect to node</string>
+    <string name="error_generic">An error occurred: %s</string>
+    <string name="error_query_failed">Failed to query sentants</string>
+    <string name="event_dialog_cancel">Cancel</string>
+    <string name="event_dialog_error">Failed to send event</string>
+    <string name="event_dialog_parameters">Parameters (JSON)</string>
+    <string name="event_dialog_select_event">Select Event</string>
+    <string name="event_dialog_send">Send</string>
+    <string name="event_dialog_success">Event sent successfully</string>
+    <string name="event_dialog_title">Send Event</string>
+    <string name="node_detail_address">BLE Address</string>
+    <string name="node_detail_disconnect">Disconnect</string>
+    <string name="node_detail_monitor_signals">Monitor Signals</string>
+    <string name="node_detail_node_id">Node ID</string>
+    <string name="node_detail_rssi">Signal Strength</string>
+    <string name="node_detail_sentants_count">Sentants: %d</string>
+    <string name="node_detail_title">Node Details</string>
+    <string name="node_detail_version">Version</string>
+    <string name="node_detail_view_sentants">View Sentants</string>
+    <string name="ok">OK</string>
+    <string name="permission_denied">Bluetooth permissions denied. App cannot function without them.</string>
+    <string name="permission_rationale">Bluetooth permissions are required to discover and connect to Reality2 nodes.</string>
+    <string name="permission_request">Grant Permissions</string>
+    <string name="permission_settings">Open Settings</string>
+    <string name="retry">Retry</string>
+    <string name="scanner_connect">Connect</string>
+    <string name="scanner_connected">Connected</string>
+    <string name="scanner_connecting">Connecting…</string>
+    <string name="scanner_no_nodes">No nodes found</string>
+    <string name="scanner_scanning">Scanning…</string>
+    <string name="scanner_stopped">Tap to scan</string>
+    <string name="scanner_title">Reality2 Nodes</string>
+    <string name="sentant_list_no_sentants">No sentants available</string>
+    <string name="sentant_list_refresh">Refresh</string>
+    <string name="sentant_list_search">Search sentants…</string>
+    <string name="sentant_list_send_event">Send Event</string>
+    <string name="sentant_list_title">Sentants</string>
+    <string name="signal_monitor_clear">Clear</string>
+    <string name="signal_monitor_filter">Filter</string>
+    <string name="signal_monitor_no_signals">No signals received</string>
+    <string name="signal_monitor_title">Signal Monitor</string>
+    <style name="Theme.Reality2DevTool" parent="android:Theme.Material.Light.NoActionBar"/>
+</resources>
