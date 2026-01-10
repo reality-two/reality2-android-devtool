@@ -198,10 +198,14 @@ class BeaconScanner(
             BleCharacteristics.R2_COMPANY_ID
         ) ?: return
 
+        // Prefer the advertised local name from scanRecord over the device's hardware name
+        val advertisedName = result.scanRecord?.deviceName
+        val deviceName = advertisedName ?: result.device.name ?: "Unknown"
+
         val node = BeaconParser.parse(
             manufacturerData,
             result.device.address,
-            result.device.name ?: "Unknown",
+            deviceName,
             result.rssi
         ) ?: return
 
@@ -239,10 +243,11 @@ class BeaconScanner(
             val existing = this[address]
             if (existing != null) {
                 val updated = updater(existing)
-                // If node disconnected and hasn't been seen in last 5 seconds, remove it immediately
+                // If node disconnected (not ERROR - user may want to retry) and hasn't been seen in last 5 seconds, remove it
                 // This prevents the connect button from briefly appearing when a node is turned off
                 val timeSinceLastSeen = System.currentTimeMillis() - updated.lastSeen
-                if (updated.connectionState == ConnectionState.DISCONNECTED && timeSinceLastSeen > DISCONNECT_TIMEOUT_MS) {
+                if (updated.connectionState == ConnectionState.DISCONNECTED &&
+                    timeSinceLastSeen > DISCONNECT_TIMEOUT_MS) {
                     Timber.d("Removing disconnected node not seen in ${timeSinceLastSeen}ms: ${address.take(8)}")
                     remove(address)
                 } else {
@@ -300,9 +305,10 @@ class BeaconScanner(
         val removed = mutableListOf<String>()
 
         updated.entries.removeAll { (address, node) ->
-            // Never remove connected or connecting nodes
+            // Never remove connected, connecting, or error nodes (user might want to retry)
             if (node.connectionState == ConnectionState.CONNECTED ||
-                node.connectionState == ConnectionState.CONNECTING) {
+                node.connectionState == ConnectionState.CONNECTING ||
+                node.connectionState == ConnectionState.ERROR) {
                 return@removeAll false
             }
 

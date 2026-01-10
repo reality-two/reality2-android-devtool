@@ -46,9 +46,9 @@ com.reality2.devtool.app-navigation-common-2.7.6-44 /home/roycdavies/.gradle/cac
 com.reality2.devtool.app-lifecycle-viewmodel-2.7.0-45 /home/roycdavies/.gradle/caches/transforms-3/e9387bdf70185864337c387cca3f69a4/transformed/lifecycle-viewmodel-2.7.0/res
 com.reality2.devtool.app-customview-poolingcontainer-1.0.0-46 /home/roycdavies/.gradle/caches/transforms-3/e99e21efc2acb10c300c0249ae5c8c30/transformed/customview-poolingcontainer-1.0.0/res
 com.reality2.devtool.app-foundation-release-47 /home/roycdavies/.gradle/caches/transforms-3/fcf3e6f3b9462b80f55116dc633af46f/transformed/foundation-release/res
-com.reality2.devtool.app-resValues-48 /mnt/data/Development/Reality2/reality2-android-devtool/app/build/generated/res/resValues/debug
-com.reality2.devtool.app-packageDebugResources-49 /mnt/data/Development/Reality2/reality2-android-devtool/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.reality2.devtool.app-packageDebugResources-50 /mnt/data/Development/Reality2/reality2-android-devtool/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.reality2.devtool.app-merged_res-51 /mnt/data/Development/Reality2/reality2-android-devtool/app/build/intermediates/merged_res/debug
-com.reality2.devtool.app-debug-52 /mnt/data/Development/Reality2/reality2-android-devtool/app/src/debug/res
-com.reality2.devtool.app-main-53 /mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/res
+com.reality2.devtool.app-resValues-48 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/build/generated/res/resValues/debug
+com.reality2.devtool.app-packageDebugResources-49 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.reality2.devtool.app-packageDebugResources-50 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.reality2.devtool.app-merged_res-51 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/build/intermediates/merged_res/debug
+com.reality2.devtool.app-debug-52 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/debug/res
+com.reality2.devtool.app-main-53 /home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/res

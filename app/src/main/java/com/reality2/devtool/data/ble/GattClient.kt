@@ -46,7 +46,7 @@ class GattClient(
     val discoveredServices: SharedFlow<GattServiceInfo> = _discoveredServices.asSharedFlow()
 
     private var nodeInfoCharacteristic: BluetoothGattCharacteristic? = null
-    private var meshInfoCharacteristic: BluetoothGattCharacteristic? = null
+    private var hotspotInfoCharacteristic: BluetoothGattCharacteristic? = null
     private var queryCharacteristic: BluetoothGattCharacteristic? = null
     private var mutationCharacteristic: BluetoothGattCharacteristic? = null
     private var subscriptionCharacteristic: BluetoothGattCharacteristic? = null
@@ -123,12 +123,12 @@ class GattClient(
 
                 if (service != null) {
                     nodeInfoCharacteristic = service.getCharacteristic(BleCharacteristics.NODE_INFO_CHAR_UUID)
-                    meshInfoCharacteristic = service.getCharacteristic(BleCharacteristics.MESH_INFO_CHAR_UUID)
+                    hotspotInfoCharacteristic = service.getCharacteristic(BleCharacteristics.HOTSPOT_INFO_CHAR_UUID)
                     queryCharacteristic = service.getCharacteristic(BleCharacteristics.QUERY_CHAR_UUID)
                     mutationCharacteristic = service.getCharacteristic(BleCharacteristics.MUTATION_CHAR_UUID)
                     subscriptionCharacteristic = service.getCharacteristic(BleCharacteristics.SUBSCRIPTION_CHAR_UUID)
 
-                    val charCount = listOfNotNull(nodeInfoCharacteristic, meshInfoCharacteristic, queryCharacteristic, mutationCharacteristic, subscriptionCharacteristic).size
+                    val charCount = listOfNotNull(nodeInfoCharacteristic, hotspotInfoCharacteristic, queryCharacteristic, mutationCharacteristic, subscriptionCharacteristic).size
                     Timber.d("Reality2 service found with $charCount characteristics (checked ${gatt.services.count { it.uuid == BleCharacteristics.R2_SERVICE_UUID }} service instances)")
 
                     if (charCount == 0) {
@@ -460,7 +460,7 @@ class GattClient(
         val results = mutableMapOf<String, String>()
         val errors = mutableListOf<String>()
 
-        Timber.d("readAllInfo: nodeInfo=${nodeInfoCharacteristic != null}, meshInfo=${meshInfoCharacteristic != null}, query=${queryCharacteristic != null}")
+        Timber.d("readAllInfo: nodeInfo=${nodeInfoCharacteristic != null}, hotspotInfo=${hotspotInfoCharacteristic != null}, query=${queryCharacteristic != null}")
 
         // Read node info (try new UUID first, then legacy)
         val nodeInfoChar = nodeInfoCharacteristic ?: queryCharacteristic
@@ -483,24 +483,40 @@ class GattClient(
             errors.add("node_info: characteristic not available")
         }
 
-        // Read mesh info
-        if (meshInfoCharacteristic != null) {
-            Timber.d("Reading mesh info from ${meshInfoCharacteristic!!.uuid}")
-            readCharacteristic(meshInfoCharacteristic!!)
+        // Read hotspot info
+        if (hotspotInfoCharacteristic != null) {
+            Timber.d("Reading hotspot info from ${hotspotInfoCharacteristic!!.uuid}")
+            readCharacteristic(hotspotInfoCharacteristic!!)
                 .onSuccess { data ->
                     if (data.isNotBlank()) {
-                        results["mesh_info"] = data
-                        Timber.d("Got mesh_info: ${data.take(50)}")
+                        results["hotspot_info"] = data
+                        Timber.d("Got hotspot_info: ${data.take(50)}")
                     } else {
-                        errors.add("mesh_info: empty response")
+                        errors.add("hotspot_info: empty response")
                     }
                 }
                 .onFailure { error ->
-                    Timber.e("Failed to read mesh info: ${error.message}")
-                    errors.add("mesh_info: ${error.message}")
+                    Timber.e("Failed to read hotspot info: ${error.message}")
+                    errors.add("hotspot_info: ${error.message}")
                 }
         } else {
-            errors.add("mesh_info: characteristic not available")
+            errors.add("hotspot_info: characteristic not available")
+        }
+
+        // Read query characteristic (contains sentant data with count)
+        if (queryCharacteristic != null && nodeInfoCharacteristic != null) {
+            // Only read separately if we didn't already fall back to it for node_info
+            Timber.d("Reading query/sentants info from ${queryCharacteristic!!.uuid}")
+            readCharacteristic(queryCharacteristic!!)
+                .onSuccess { data ->
+                    if (data.isNotBlank()) {
+                        results["sentants"] = data
+                        Timber.d("Got sentants: ${data.take(50)}")
+                    }
+                }
+                .onFailure { error ->
+                    Timber.w("Failed to read sentants: ${error.message}")
+                }
         }
 
         // If we got any data, return it
@@ -561,29 +577,29 @@ class GattClient(
         }
 
     /**
-     * Read mesh info from the node (WiFi mesh connection details)
+     * Read hotspot info from the node (WiFi hotspot connection details)
      */
-    suspend fun readMeshInfo(): Result<MeshInfo> = suspendCancellableCoroutine { continuation ->
-        val characteristic = meshInfoCharacteristic
+    suspend fun readHotspotInfo(): Result<HotspotInfo> = suspendCancellableCoroutine { continuation ->
+        val characteristic = hotspotInfoCharacteristic
         if (characteristic == null) {
-            continuation.resume(Result.failure(Exception("Mesh info characteristic not available")))
+            continuation.resume(Result.failure(Exception("Hotspot info characteristic not available")))
             return@suspendCancellableCoroutine
         }
 
-        Timber.d("Reading mesh info")
+        Timber.d("Reading hotspot info")
 
         pendingRead = { readResult ->
             readResult.fold(
                 onSuccess = { data ->
                     val jsonString = data.decodeToString()
-                    Timber.d("Received mesh info JSON: $jsonString")
+                    Timber.d("Received hotspot info JSON: $jsonString")
 
                     try {
-                        val meshInfo = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
-                            .decodeFromString<MeshInfo>(jsonString)
-                        continuation.resume(Result.success(meshInfo))
+                        val hotspotInfo = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+                            .decodeFromString<HotspotInfo>(jsonString)
+                        continuation.resume(Result.success(hotspotInfo))
                     } catch (e: Exception) {
-                        Timber.e(e, "Failed to parse mesh info")
+                        Timber.e(e, "Failed to parse hotspot info")
                         continuation.resume(Result.failure(e))
                     }
                 },
@@ -698,7 +714,7 @@ class GattClient(
      */
     private fun cleanup() {
         nodeInfoCharacteristic = null
-        meshInfoCharacteristic = null
+        hotspotInfoCharacteristic = null
         queryCharacteristic = null
         mutationCharacteristic = null
         subscriptionCharacteristic = null

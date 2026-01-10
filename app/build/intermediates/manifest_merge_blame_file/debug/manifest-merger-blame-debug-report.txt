@@ -10,48 +10,48 @@
 10
 11    <!-- Required hardware features -->
 12    <uses-feature
-12-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:6:5-8:35
+12-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:6:5-8:35
 13        android:name="android.hardware.bluetooth_le"
-13-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:7:9-53
+13-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:7:9-53
 14        android:required="true" />
-14-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:8:9-32
+14-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:8:9-32
 15    <uses-feature
-15-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:9:5-11:35
+15-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:9:5-11:35
 16        android:name="android.hardware.bluetooth"
-16-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:10:9-50
+16-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:10:9-50
 17        android:required="true" />
-17-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:11:9-32
+17-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:11:9-32
 18
 19    <!-- Bluetooth permissions for Android 12+ (API 31+) -->
 20    <uses-permission
-20-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:14:5-17:31
+20-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:14:5-17:31
 21        android:name="android.permission.BLUETOOTH_SCAN"
-21-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:15:9-57
+21-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:15:9-57
 22        android:usesPermissionFlags="neverForLocation" />
-22-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:16:9-55
+22-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:16:9-55
 23    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-23-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:5-76
-23-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:22-73
+23-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:5-76
+23-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:18:22-73
 24
 25    <!-- For older Android versions (compatibility) -->
 26    <uses-permission
-26-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:21:5-23:38
+26-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:21:5-23:38
 27        android:name="android.permission.BLUETOOTH"
-27-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:22:9-52
+27-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:22:9-52
 28        android:maxSdkVersion="30" />
-28-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:23:9-35
+28-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:23:9-35
 29    <uses-permission
-29-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:24:5-26:38
+29-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:24:5-26:38
 30        android:name="android.permission.BLUETOOTH_ADMIN"
-30-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:25:9-58
+30-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:25:9-58
 31        android:maxSdkVersion="30" />
-31-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:26:9-35
+31-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:26:9-35
 32    <uses-permission
-32-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:27:5-29:38
+32-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:27:5-29:38
 33        android:name="android.permission.ACCESS_FINE_LOCATION"
-33-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:28:9-63
+33-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:28:9-63
 34        android:maxSdkVersion="30" />
-34-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:29:9-35
+34-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:29:9-35
 35
 36    <permission
 36-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
@@ -65,48 +65,48 @@
 40-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
 41
 42    <application
-42-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:31:5-53:19
+42-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:31:5-53:19
 43        android:name="com.reality2.devtool.Reality2DevToolApp"
-43-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:32:9-43
+43-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:32:9-43
 44        android:allowBackup="true"
-44-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:33:9-35
+44-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:33:9-35
 45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 45-->[androidx.core:core:1.12.0] /home/roycdavies/.gradle/caches/transforms-3/88d458a4c0cf832f7802102a6a25430d/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 46        android:dataExtractionRules="@xml/data_extraction_rules"
-46-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:34:9-65
+46-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:34:9-65
 47        android:debuggable="true"
 48        android:extractNativeLibs="false"
 49        android:fullBackupContent="@xml/backup_rules"
-49-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:35:9-54
+49-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:35:9-54
 50        android:icon="@mipmap/ic_launcher"
-50-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:36:9-43
+50-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:36:9-43
 51        android:label="@string/app_name"
-51-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:37:9-41
+51-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:37:9-41
 52        android:roundIcon="@mipmap/ic_launcher_round"
-52-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:38:9-54
+52-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:38:9-54
 53        android:supportsRtl="true"
-53-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:39:9-35
+53-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:39:9-35
 54        android:theme="@style/Theme.Reality2DevTool" >
-54-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:40:9-53
+54-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:40:9-53
 55        <activity
-55-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:43:9-52:20
+55-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:43:9-52:20
 56            android:name="com.reality2.devtool.MainActivity"
-56-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:44:13-41
+56-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:44:13-41
 57            android:exported="true"
-57-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:45:13-36
+57-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:45:13-36
 58            android:theme="@style/Theme.Reality2DevTool"
-58-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:46:13-57
+58-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:46:13-57
 59            android:windowSoftInputMode="adjustResize" >
-59-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:47:13-55
+59-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:47:13-55
 60            <intent-filter>
-60-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:48:13-51:29
+60-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:48:13-51:29
 61                <action android:name="android.intent.action.MAIN" />
-61-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:17-69
-61-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:25-66
+61-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:17-69
+61-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:49:25-66
 62
 63                <category android:name="android.intent.category.LAUNCHER" />
-63-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:17-77
-63-->/mnt/data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:27-74
+63-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:17-77
+63-->/home/roycdavies/Drives/Data/Development/Reality2/reality2-android-devtool/app/src/main/AndroidManifest.xml:50:27-74
 64            </intent-filter>
 65        </activity>
 66        <activity

@@ -7,13 +7,13 @@ import java.util.UUID
  */
 object BleCharacteristics {
     // Reality2 GATT Service UUID
-    val R2_SERVICE_UUID: UUID = UUID.fromString("0000180A-0000-1000-8000-00805F9B34FB")
+    val R2_SERVICE_UUID: UUID = UUID.fromString("00001234-0000-1000-8000-00805F9B34FB")
 
     // Node Info characteristic (Read) - node metadata, version, capabilities
     val NODE_INFO_CHAR_UUID: UUID = UUID.fromString("00001237-0000-1000-8000-00805F9B34FB")
 
-    // Mesh Info characteristic (Read) - WiFi mesh/hotspot connection details
-    val MESH_INFO_CHAR_UUID: UUID = UUID.fromString("00001235-0000-1000-8000-00805F9B34FB")
+    // Hotspot Info characteristic (Read) - WiFi hotspot connection details (SSID, PSK, etc.)
+    val HOTSPOT_INFO_CHAR_UUID: UUID = UUID.fromString("00001235-0000-1000-8000-00805F9B34FB")
 
     // Query characteristic (Read) - legacy, falls back to node info
     val QUERY_CHAR_UUID: UUID = UUID.fromString("00002A57-0000-1000-8000-00805F9B34FB")

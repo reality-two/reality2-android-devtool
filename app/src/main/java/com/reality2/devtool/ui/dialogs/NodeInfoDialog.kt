@@ -18,6 +18,9 @@ import kotlinx.serialization.json.Json
 fun NodeInfoDialog(
     nodeName: String,
     nodeAddress: String,
+    nodeId: String,
+    rssi: Int,
+    sentantsCount: Int,
     json: String,
     onDismiss: () -> Unit
 ) {
@@ -54,13 +57,35 @@ fun NodeInfoDialog(
                     text = nodeName,
                     style = MaterialTheme.typography.titleLarge
                 )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Node details in a summary section
+                Surface(
+                    color = MaterialTheme.colorScheme.primaryContainer,
+                    shape = MaterialTheme.shapes.small
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(12.dp)
+                    ) {
+                        InfoRow(label = "Node ID", value = nodeId)
+                        InfoRow(label = "Address", value = nodeAddress)
+                        InfoRow(label = "Signal", value = "$rssi dBm")
+                        InfoRow(label = "Sentants", value = sentantsCount.toString())
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(12.dp))
+
                 Text(
-                    text = nodeAddress,
-                    style = MaterialTheme.typography.bodySmall,
+                    text = "GATT Data",
+                    style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(4.dp))
 
                 // Scrollable JSON content
                 Surface(
@@ -96,5 +121,27 @@ fun NodeInfoDialog(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun InfoRow(label: String, value: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 2.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyMedium,
+            fontFamily = FontFamily.Monospace,
+            color = MaterialTheme.colorScheme.onPrimaryContainer
+        )
     }
 }

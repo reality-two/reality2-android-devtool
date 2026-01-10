@@ -13,7 +13,7 @@ import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 /**
- * GraphQL client for querying Reality2 nodes over WiFi mesh
+ * GraphQL client for querying Reality2 nodes over WiFi hotspot
  */
 class GraphQLClient {
     private val client = OkHttpClient.Builder()
@@ -52,14 +52,14 @@ class GraphQLClient {
     /**
      * Query all sentants from a node via HTTP GraphQL
      *
-     * @param ipv6Address IPv6 link-local address (e.g., "fe80::1234...")
-     * @param port HTTP port (default 8080)
+     * @param ipAddress IP address of the Reality2 node (e.g., "192.168.42.1")
+     * @param port HTTP port (default 4005)
      * @return Result with list of sentants or error
      */
-    suspend fun querySentants(ipv6Address: String, port: Int = 8080): Result<List<Sentant>> = withContext(Dispatchers.IO) {
+    suspend fun querySentants(ipAddress: String, port: Int = 4005): Result<List<Sentant>> = withContext(Dispatchers.IO) {
         try {
-            // URL format for IPv6: http://[ipv6]:port/graphql
-            val url = "http://[$ipv6Address]:$port/graphql"
+            // URL format: http://ip:port/reality2
+            val url = "http://$ipAddress:$port/reality2"
 
             Timber.d("Querying sentants from $url")
 

@@ -6,7 +6,7 @@ import android.bluetooth.BluetoothManager
 import android.content.Context
 import com.reality2.devtool.data.model.ConnectionState
 import com.reality2.devtool.data.model.GattServiceInfo
-import com.reality2.devtool.data.model.MeshInfo
+import com.reality2.devtool.data.model.HotspotInfo
 import com.reality2.devtool.data.model.Reality2Node
 import com.reality2.devtool.data.model.Sentant
 import com.reality2.devtool.data.model.SignalNotification
@@ -123,7 +123,8 @@ class BleManager(private val context: Context) {
      * Connect to a Reality2 node
      */
     suspend fun connectToNode(node: Reality2Node): Result<GattClient> {
-        // Update node state to CONNECTING
+        // Update node state to CONNECTING and refresh lastSeen to prevent cleanup during connection
+        refreshNodeLastSeen(node.address)
         updateNodeConnectionState(node.address, ConnectionState.CONNECTING)
 
         // Check if already connected
@@ -202,13 +203,13 @@ class BleManager(private val context: Context) {
     }
 
     /**
-     * Read mesh info from a connected node
+     * Read hotspot info from a connected node
      */
-    suspend fun readMeshInfo(address: String): Result<MeshInfo> {
+    suspend fun readHotspotInfo(address: String): Result<HotspotInfo> {
         val client = gattClients[address]
             ?: return Result.failure(Exception("Not connected to $address"))
 
-        return client.readMeshInfo()
+        return client.readHotspotInfo()
     }
 
     /**
@@ -251,6 +252,15 @@ class BleManager(private val context: Context) {
      */
     fun getGattClient(address: String): GattClient? {
         return gattClients[address]
+    }
+
+    /**
+     * Refresh a node's lastSeen timestamp to prevent it from being cleaned up
+     */
+    private fun refreshNodeLastSeen(address: String) {
+        beaconScanner.updateNodeState(address) { node ->
+            node.copy(lastSeen = System.currentTimeMillis())
+        }
     }
 
     /**

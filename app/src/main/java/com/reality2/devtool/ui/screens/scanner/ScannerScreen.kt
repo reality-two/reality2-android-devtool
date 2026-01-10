@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import com.reality2.devtool.data.model.ConnectionState
 import com.reality2.devtool.ui.components.NodeCard
+import com.reality2.devtool.ui.dialogs.HotspotConnectionDialog
 import com.reality2.devtool.ui.dialogs.NodeInfoDialog
 import com.reality2.devtool.ui.dialogs.SentantsDialog
 
@@ -36,6 +37,7 @@ fun ScannerScreen(
     val nodes by viewModel.discoveredNodes.collectAsState()
     val sentantsDialogData by viewModel.showSentantsDialog.collectAsState()
     val nodeInfoDialogData by viewModel.showNodeInfoDialog.collectAsState()
+    val hotspotDialogData by viewModel.showHotspotDialog.collectAsState()
 
     // Animated dots for scanning indicator
     var dotCount by remember { mutableStateOf(1) }
@@ -156,8 +158,21 @@ fun ScannerScreen(
         NodeInfoDialog(
             nodeName = data.nodeName,
             nodeAddress = data.nodeAddress,
+            nodeId = data.nodeId,
+            rssi = data.rssi,
+            sentantsCount = data.sentantsCount,
             json = data.json,
             onDismiss = { viewModel.dismissNodeInfoDialog() }
+        )
+    }
+
+    // Show Hotspot Connection Dialog when hotspot info is available
+    hotspotDialogData?.let { data ->
+        HotspotConnectionDialog(
+            nodeName = data.nodeName,
+            hotspotInfo = data.hotspotInfo,
+            onQuerySentants = { viewModel.confirmQuerySentants() },
+            onDismiss = { viewModel.dismissHotspotDialog() }
         )
     }
 }

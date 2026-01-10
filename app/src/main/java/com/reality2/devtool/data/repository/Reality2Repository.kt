@@ -3,7 +3,7 @@ package com.reality2.devtool.data.repository
 import com.reality2.devtool.data.ble.BleManager
 import com.reality2.devtool.data.mesh.GraphQLClient
 import com.reality2.devtool.data.model.GattServiceInfo
-import com.reality2.devtool.data.model.MeshInfo
+import com.reality2.devtool.data.model.HotspotInfo
 import com.reality2.devtool.data.model.Reality2Node
 import com.reality2.devtool.data.model.Sentant
 import com.reality2.devtool.data.model.SignalNotification
@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 import timber.log.Timber
 
 /**
- * Repository for Reality2 BLE and WiFi mesh operations
+ * Repository for Reality2 BLE and WiFi hotspot operations
  * Provides a clean API for the UI layer
  */
 class Reality2Repository(private val bleManager: BleManager) {
@@ -111,9 +111,9 @@ class Reality2Repository(private val bleManager: BleManager) {
 
     /**
      * Query Sentants with raw JSON via GATT
-     * DEPRECATED: Use querySentantsViaMesh() instead - GATT queries removed from server
+     * DEPRECATED: Use querySentantsViaHotspot() instead - GATT queries removed from server
      */
-    @Deprecated("Use querySentantsViaMesh()", ReplaceWith("querySentantsViaMesh(ipv6Address, port)"))
+    @Deprecated("Use querySentantsViaHotspot()", ReplaceWith("querySentantsViaHotspot(ipAddress, port)"))
     suspend fun querySentantsWithRaw(address: String): Result<Pair<List<Sentant>, String>> {
         Timber.d("Repository: Querying sentants with raw JSON from $address")
         return bleManager.querySentantsWithRaw(address)
@@ -121,9 +121,9 @@ class Reality2Repository(private val bleManager: BleManager) {
 
     /**
      * Query all Sentants from a connected node via GATT
-     * DEPRECATED: Use querySentantsViaMesh() instead - GATT queries removed from server
+     * DEPRECATED: Use querySentantsViaHotspot() instead - GATT queries removed from server
      */
-    @Deprecated("Use querySentantsViaMesh()", ReplaceWith("querySentantsViaMesh(ipv6Address, port)"))
+    @Deprecated("Use querySentantsViaHotspot()", ReplaceWith("querySentantsViaHotspot(ipAddress, port)"))
     suspend fun querySentants(address: String): Result<List<Sentant>> {
         Timber.d("Repository: Querying sentants from $address")
         return bleManager.querySentants(address)
@@ -157,11 +157,11 @@ class Reality2Repository(private val bleManager: BleManager) {
     }
 
     /**
-     * Read WiFi mesh info from a connected node
+     * Read WiFi hotspot info from a connected node
      */
-    suspend fun readMeshInfo(address: String): Result<MeshInfo> {
-        Timber.d("Repository: Reading mesh info from $address")
-        return bleManager.readMeshInfo(address)
+    suspend fun readHotspotInfo(address: String): Result<HotspotInfo> {
+        Timber.d("Repository: Reading hotspot info from $address")
+        return bleManager.readHotspotInfo(address)
     }
 
     /**
@@ -181,11 +181,11 @@ class Reality2Repository(private val bleManager: BleManager) {
     }
 
     /**
-     * Query sentants via WiFi mesh (HTTP GraphQL)
+     * Query sentants via WiFi hotspot (HTTP GraphQL)
      * Use this instead of GATT for better performance and no size limits
      */
-    suspend fun querySentantsViaMesh(ipv6Address: String, port: Int = 8080): Result<List<Sentant>> {
-        Timber.d("Repository: Querying sentants via mesh from $ipv6Address:$port")
-        return graphQLClient.querySentants(ipv6Address, port)
+    suspend fun querySentantsViaHotspot(ipAddress: String, port: Int = 4005): Result<List<Sentant>> {
+        Timber.d("Repository: Querying sentants via hotspot from $ipAddress:$port")
+        return graphQLClient.querySentants(ipAddress, port)
     }
 }
